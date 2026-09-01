@@ -1,72 +1,90 @@
 #import "/lib.typ": lab-section
 
-== 1. ESPECIFICACIÓN DE REQUISITOS DE SOFTWARE (ERS) Y MODELADO REMUS
+== ESPECIFICACIÓN DE REQUISITOS DE SOFTWARE Y MODELADO CON LA HERRAMIENTA REM
 
-=== 1.1 Objetivo
-El laboratorio implementa la ERS del Sistema Integrado de Gestión Académica Escolar (SIGAE) para el colegio Nuevo Horizonte. Objetivo: centralizar estudiantes, matrículas, pagos, usuarios y reportes en fuente única trazable, con control por roles y auditoría. Se aplica la estructura IEEE 29148 @ieee29148 y la plantilla de Durán @durán2002rem. La primera versión excluye aula virtual, biblioteca, biométrico, transporte, inventarios y planillas (alcance preliminar §5).
+=== Objetivo
+El presente laboratorio implementa la especificación de requisitos de software (ERS) del Sistema Integrado de Gestión Académica Escolar (SIGAE) para la institución educativa colegio Nuevo Horizonte. El objetivo principal reside en centralizar la información relativa a estudiantes, matrículas, pagos, usuarios y reportes en una fuente única y trazable, garantizando el control de acceso basado en roles (RBAC) y la auditoría de operaciones. Se aplica la estructura de la norma IEEE 29148 @ieee29148 junto a la plantilla de especificación de Durán @durán2002rem. La primera versión del sistema excluye los módulos de aula virtual, biblioteca, control biométrico, transporte, inventarios y planillas de personal, según lo definido en el alcance preliminar del proyecto.
 
-=== 1.2 Descripción del trabajo realizado
-1. *Elicitación y análisis del enunciado.* Se extrajeron 7 interesados, 6 actores, 5 objetivos, 7 requisitos de información (IRQ), 23 funcionales (FR), 11 no funcionales (NFR) y 5 restricciones (CTR) a partir de §4-§9. Se distinguió necesidad vs. regla de negocio vs. restricción vs. dato @sommerville2020 @pressman2021.
+=== Descripción del trabajo realizado
+1. *Elicitación y análisis del enunciado.* Se identificaron y extrajeron 7 interesados, 6 actores principales, 5 objetivos del negocio (OBJ), 7 requisitos de información (IRQ), 23 requisitos funcionales (FR), 11 requisitos no funcionales (NFR) y 5 restricciones del sistema (CTR) a partir de los requerimientos y condiciones del problema. En este proceso se diferenció conceptualmente entre necesidades de los interesados, reglas de negocio, restricciones del entorno y atributos de calidad @sommerville2020 @pressman2021.
 
-2. *Modelado.* Se definieron 2 organizaciones (Colegio y Equipo de desarrollo), 7 interesados, 6 actores, 5 objetivos, 8 casos de uso, 7 IRQ, 5 CTR, 23 FR y 11 NFR. Cada requisito registra fuente (§), regla asociada y criterio de aceptación medible. La validación del modelo resulta sin errores ni advertencias.
+2. *Modelado de Requisitos con REM.* Se definieron 2 organizaciones (Colegio y Equipo de desarrollo), 7 interesados, 6 actores del sistema, 5 objetivos OBJ, 8 casos de uso UC, 7 IRQ, 5 CTR, 23 FR y 11 NFR. Cada elemento registrado cuenta con su fuente de origen, regla de negocio asociada y criterio de aceptación cuantificable. La verificación automática del modelo mediante la herramienta REM resultó libre de inconsistencias o advertencias.
 
-3. *Especificación y validación.* La ERS se estructura según IEEE 29148 @ieee29148 con atributos de calidad de IEEE 830 @ieee830: clara, completa, consistente, verificable y trazable. La exportación a catálogo genera la Especificación de Requisitos de Software completa (Anexo).
+3. *Especificación y validación.* La ERS se estructuró siguiendo los estándares IEEE 29148 @ieee29148 e IEEE 830 @ieee830, garantizando que cada enunciado sea claro, completo, consistente, verificable y trazable. La exportación del modelo generó la documentación técnica final adjunta en el catálogo.
 
-4. *Diagramas.* Cronograma RUP de 18 semanas y organigrama de roles. El modelo de casos de uso integra Secretaría, Caja, Docente, Apoderado, Administración y Dirección.
+4. *Diagramación técnica.* Se elaboró el cronograma de desarrollo del proyecto estructurado en 18 semanas bajo el proceso unificado de desarrollo de software (RUP), así como el organigrama organizativo de roles. El modelo de casos de uso integra las funciones de Secretaría, Caja, Docente, Apoderado, Administración y Dirección.
 
-=== 1.3 Resultados obtenidos
-*Proyecto REM.* Estadísticas de validación:
+=== Resultados obtenidos
+*Estadísticas del Modelo.* Se resumen a continuación los componentes modelados y consolidados dentro de la herramienta de requisitos:
 
 #table(
   columns: (2fr, 1fr),
   align: left + horizon,
   stroke: 0.5pt + rgb("#808080"),
-  table.header([Entidad], [Cantidad]),
+  table.header([Entidad / Artefacto], [Cantidad]),
   [Organización], [2],
   [Interesado], [7],
-  [Actor], [6],
-  [Objetivo (OBJ)], [5],
-  [Caso de uso (UC)], [8],
-  [Requisito de información (IRQ)], [7],
-  [Requisito funcional (FR)], [23],
-  [Requisito no funcional (NFR)], [11],
-  [Restricción (CTR)], [5],
-  table.cell(colspan: 2, align: center)[*Total entidades*: 74],
+  [Actor del Sistema], [6],
+  [Objetivo de Negocio (OBJ)], [5],
+  [Caso de Uso (UC)], [8],
+  [Requisito de Información (IRQ)], [7],
+  [Requisito Funcional (FR)], [23],
+  [Requisito No Funcional (NFR)], [11],
+  [Restricción del Sistema (CTR)], [5],
+  table.cell(colspan: 2, align: center)[*Total de entidades especificadas*: 74],
 )
 
+En la @fig-rem-1 y en la @fig-rem-2 se presentan las evidencias de uso de la herramienta REM durante el proceso de modelado, mostrando la captura estructurada de requerimientos y la verificación de consistencia del proyecto SIGAE.
+
 #figure(
-  image("../../img/use_cases.png", width: 92%),
-  caption: [Modelo de casos de uso SIGAE. Actores: Secretaría, Caja, Docente, Apoderado, Administración y Dirección.],
+  image("../../img/rem-1.png", width: 68%),
+  caption: [Captura de pantalla de la herramienta REM durante el modelado de requisitos.],
+) <fig-rem-1>
+
+#figure(
+  image("../../img/rem-2.png", width: 68%),
+  caption: [Panel de validación de consistencia y gestión de entidades en REM.],
+) <fig-rem-2>
+
+En la @fig-use-cases se ilustra el modelo de casos de uso principal del sistema SIGAE, detallando la interacción entre los actores institucionales y los módulos funcionales.
+
+#figure(
+  image("../../img/use_cases.png", width: 65%),
+  caption: [Modelo de casos de uso del sistema SIGAE.],
 ) <fig-use-cases>
 
+En la @fig-gantt se presenta la planificación temporal del proyecto mediante un cronograma basado en RUP (18 semanas), contemplando actividades en paralelo, hitos de control y las cuatro fases del proceso unificado.
+
 #figure(
-  image("../../img/sigae_gantt.png", width: 95%),
-  caption: [Cronograma RUP 18 semanas. Incepción (ERS) 21 d, Elaboración 21 d, Construcción iter-1 (matrícula/usuarios) 28 d + iter-2 (pagos/reportes) 28 d, Transición 21 d.],
+  image("../../img/sigae_gantt.png", width: 65%),
+  caption: [Cronograma de desarrollo del proyecto basado en RUP.],
 ) <fig-gantt>
 
+En la @fig-organigrama se expone la estructura organizativa del equipo del proyecto, coordinada por la jefatura de proyecto hacia las áreas de análisis, arquitectura, desarrollo, calidad y operaciones.
+
 #figure(
-  image("../../img/sigae_organigrama.png", width: 85%),
-  caption: [Organigrama de roles. Jefatura de proyecto coordina análisis, arquitectura, UI/UX, desarrollo, calidad y administración de datos.],
+  image("../../img/sigae_organigrama.png", width: 60%),
+  caption: [Organigrama de roles del equipo de proyecto.],
 ) <fig-organigrama>
 
-*Catálogo resumido.* Trazabilidad OBJ→FR/NFR/IRQ/CTR:
+*Matriz de trazabilidad y resumen de requisitos.* La correspondencia entre los objetivos del negocio y los componentes del sistema se establece de la siguiente manera:
 
-- OBJ-01 Centralizar información trazable → IRQ-01..07, FR-01..04, FR-20, CTR-05, NFR-10/11.
-- OBJ-02 Matrícula con vacantes y vigencia → IRQ-01/03/06, FR-05..11, CTR-02..04, UC-03/04.
-- OBJ-03 Gestión financiera → IRQ-04, FR-12..14, CTR-05, UC-05.
-- OBJ-04 Seguridad RBAC → IRQ-05/07, FR-15..19, NFR-05..07, CTR-05, UC-06/07.
-- OBJ-05 Reportes por rol → FR-21..23, NFR-01, UC-08.
+- *OBJ-01 Centralizar información trazable:* Se satisface mediante IRQ-01 a IRQ-07, FR-01 a FR-04, FR-20 (auditoría), CTR-05 y NFR-10/11.
+- *OBJ-02 Gestión de matrícula con vacantes y vigencia:* Se relaciona con IRQ-01, IRQ-03, IRQ-06, FR-05 a FR-11, CTR-02 a CTR-04, y UC-03/04.
+- *OBJ-03 Control y gestión financiera:* Se cumple mediante IRQ-04, FR-12 a FR-14, CTR-05 (auditoría) y UC-05.
+- *OBJ-04 Seguridad y control de acceso RBAC:* Se implementa a través de IRQ-05, IRQ-07, FR-15 a FR-19, NFR-05 a NFR-07, CTR-05 y UC-06/07.
+- *OBJ-05 Generación de reportes por rol:* Se satisface mediante FR-21 a FR-23, NFR-01 y UC-08.
 
-Reglas §8 formalizadas como CTR y validadas en FR: unicidad de documento, 1 matrícula activa/año, vacantes con autorización, borrado lógico, cierre de año bloquea matrículas, visibilidad por rol y auditoría.
+Las reglas de negocio establecidas en el dominio fueron formalizadas como restricciones CTR y validadas mediante requisitos funcionales: unicidad de documento (CTR-02), 1 matrícula activa por estudiante por año (CTR-02), vacantes con autorización (CTR-03), borrado lógico de pagos (CTR-05), cierre de año bloquea matrículas (CTR-04), visibilidad por rol y auditoría inmutable (CTR-05).
 
-*Artefactos verificables.* Cada FR/NFR incluye criterio de aceptación (CA) medible: FR-01 CA = documento duplicado → rechazo con mensaje "Documento ya registrado"; NFR-01 CA = p95 ≤2 s en 100 concurrentes (NFR-03). Contraseñas con hash salado (NFR-05), canal cifrado (NFR-06) y control de acceso por rol (NFR-07) son verificables por inspección y pruebas.
+*Artefactos verificables.* Cada requisito funcional FR y no funcional NFR incluye criterios de aceptación medibles. Por ejemplo, en FR-01 el documento duplicado deriva en un rechazo con mensaje "Documento ya registrado". En NFR-01 se exige un tiempo de respuesta en percentil 95 (p95) ≤ 2 s bajo 100 usuarios concurrentes (NFR-03). El hashing de contraseñas (NFR-05), el canal cifrado HTTPS (NFR-06) y la seguridad RBAC (NFR-07) son verificables por inspección y pruebas de seguridad.
 
-=== 1.4 Análisis de resultados
-*Calidad de la ERS.* Cumple atributos de IEEE 830 @ieee830 y 29148 @ieee29148: clara (plantilla REM), completa (74 entidades cubren §6.1-6.5 y §8), consistente (reglas CTR sin contradicción), verificable (CA cuantificados), trazable (OBJ→IRQ/FR/UC) @ieee2024.
+=== Análisis de resultados
+*Calidad de la especificación.* El modelo elaborado satisface los atributos de calidad definidos por los estándares IEEE 830 @ieee830 e IEEE 29148 @ieee29148: es claro (plantilla REM), completo (74 entidades), consistente (restricciones CTR sin contradicción), verificable (criterios medibles) y trazable bidireccionalmente (OBJ a IRQ, FR, UC y CTR) @ieee2024.
 
-*Dependencias.* FR-09 (registrar matrícula) depende de FR-05/07 (configurar año/vacantes) y de IRQ-01/06; FR-12 (registrar pago) depende de matrícula activa (FR-09); FR-17/18 (autenticar/bloqueo) precede a todo el control de acceso. Esta cadena justifica el orden del cronograma.
+*Cadena de dependencias.* El registro de matrícula (FR-09) depende de configurar el año y vacantes (FR-05/07) y de registrar al estudiante (IRQ-01/06). El registro de pago (FR-12) exige matrícula activa (FR-09). Autenticación y bloqueo (FR-17/18) preceden al control de acceso. Esta secuencia justifica el orden del cronograma RUP.
 
-*Rendimiento y capacidad.* NFR-01 (≤2 s consultas) y NFR-02 (≤4 s matrícula) se prueban con carga @ieee29148; NFR-03 (100 concurrentes) y NFR-04 (99% mensual) requieren monitoreo y escalado. NFR-08 (usabilidad tras 2 h capacitación) se valida con 5 usuarios novatos; NFR-09 (compatibilidad Windows + móvil apoderado) vía pruebas de compatibilidad.
+*Rendimiento y capacidad operativas.* Las metas de rendimiento NFR-01 (≤ 2 s consultas) y NFR-02 (≤ 4 s matrícula) se verifican con pruebas de carga @ieee29148. NFR-03 (100 concurrentes) y NFR-04 (99% disponibilidad) requieren monitoreo de infraestructura. NFR-08 (capacitación ≤ 2 h) se valida con 5 usuarios novatos.
 
 *Ventajas y limitaciones del modelado con REM.*
 
@@ -74,30 +92,13 @@ Reglas §8 formalizadas como CTR y validadas en FR: unicidad de documento, 1 mat
   columns: (1fr, 1fr),
   align: left + horizon,
   stroke: 0.5pt + rgb("#808080"),
-  table.header([Ventajas], [Limitaciones / Riesgos]),
-  [Fuente única y trazabilidad OBJ→FR→UC exigida en §3 y §8. Detección temprana de duplicidad y vacantes.],
-  [Curva de aprendizaje de la plantilla; requiere disciplina en criterios de aceptación.],
-  [Plantilla de Durán @durán2002rem reduce ambigüedad; campos de precondición/postcondición documentan excepciones (§8).],
-  [Exportación a documentos requiere validación adicional de formato.],
-  [Validación del modelo y auditoría (IRQ-07/FR-20) generan evidencia para toma de decisiones.],
-  [Primera versión recorta alcance (CTR-01); incorporar biométrico/biblioteca exige refactorización.],
-  [Roles y RBAC explícitos (§6.4, §8) facilitan matriz de permisos y pruebas.],
-  [Datos sensibles requieren NFR-10 (respaldo diario, RPO 24 h, RTO 4 h) y NFR-11 (privacidad) operativos, no solo de especificación.],
+  table.header([Ventajas del enfoque], [Limitaciones y riesgos identificados]),
+  [Fuente única y trazabilidad OBJ a FR y UC. Detección temprana de duplicidades y vacantes.],
+  [Curva de aprendizaje inicial de la plantilla REM; exige rigor en criterios de aceptación.],
+  [La plantilla de Durán @durán2002rem reduce ambigüedad y documenta precondiciones y postcondiciones.],
+  [Exportación a documentos requiere ajustes de presentación en tablas extensas.],
+  [Verificación del modelo e IRQ-07/FR-20 (auditoría) brindan evidencia objetiva para decisiones.],
+  [El alcance inicial acotado requiere refactorización para agregar biométrico o biblioteca.],
+  [Roles y RBAC explícitos facilitan la matriz de permisos y pruebas de seguridad.],
+  [Datos sensibles exigen NFR-10 (respaldo diario, RPO 24 h, RTO 4 h) y NFR-11 (privacidad) operativos en infraestructura.],
 )
-
-*Preguntas orientadoras (§12).*
-- Necesidad vs. regla: "quiero consultar pagos" es necesidad; "una sección no supera vacantes salvo autorización" es regla (CTR-03).
-- Ambigüedades: "código provisional autorizado, luego debe actualizarse" (¿plazo? ¿quién autoriza?) requiere consulta; "comunicación protegida" se precisa como canal cifrado (NFR-06).
-- Dependencias: ver párrafo anterior.
-- Calidad medible: NFR-01/02/03/04/05/06/10 son cuantificables; "capacitación breve" se operacionaliza como ≤2 h y 5 usuarios (NFR-08).
-- Excepciones: documento duplicado (FR-01), vacante excedida sin autorización (CTR-03), cierre de año (CTR-04), 5 intentos fallidos (FR-18), anulación con motivo/autorización (FR-10/13).
-- Prioridad v1: FR-01..11 (estudiante/matrícula/vacantes), FR-15..19 (usuarios/seguridad), FR-21..23 (reportes básicos); pagos (FR-12..14) en segunda iteración.
-
-=== 1.5 Conclusiones
-1. La ERS centraliza el caso Nuevo Horizonte en 74 entidades trazables y 31 requisitos verificables (23 FR + 8 UC) que cubren registro, matrícula con vacantes, pagos con borrado lógico y reportes por rol. La validación sin errores confirma consistencia; la completitud se apoya en §6 y §8.
-
-2. El control de reglas críticas (unicidad documento CTR-02, vacantes con autorización CTR-03, cierre de año CTR-04, auditoría CTR-05) se implementa como restricciones validables en base de datos y pruebas de aceptación, reduciendo duplicidad y retrabajo señalados en §2.
-
-3. Las NFR operacionalizadas (2 s/4 s, 100 concurrentes, 99%, hash, canal cifrado, respaldo diario) hacen la calidad comprobable; sin ellas la ERS sería no verificable @ieee29148 @ieee2024. La arquitectura iterativa entrega valor temprano (matrícula) y mitiga riesgo de seguridad.
-
-4. El modelado trazable y los criterios de aceptación medibles permiten planificar construcción y transición en 18 semanas, con evidencia objetiva para validación y auditoría.

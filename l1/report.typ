@@ -4,7 +4,7 @@
 #show: unsa-report.with(
   course_name: "Calidad de Software",
   lab_title: "Requerimientos",
-  lab_number: "1",
+  lab_number: "01",
   instructor_name: "Jose Delgado Bastidas",
   members: (
     "Christian Raul Mestas Zegarra",
@@ -21,6 +21,8 @@
 #v(0.5em)
 #include "sections/2-cuestionario.typ"
 #v(0.5em)
-#include "sections/3-referencias.typ"
+#include "sections/3-conclusiones.typ"
 #v(0.5em)
-#include "sections/4-anexo.typ"
+#include "sections/4-referencias.typ"
+#v(0.5em)
+#include "sections/5-anexo.typ"

@@ -1,23 +1,61 @@
 @startgantt
-title Cronograma SIGAE - Colegio Nuevo Horizonte (18 semanas - RUP)
+title Cronograma RUP del Proyecto SIGAE (18 Semanas)
 Project starts 2026-03-02
 printscale weekly
 skinparam backgroundColor #FFFFFF
 
-[Fase 1: Incepción - Elicitación y ERS con REM] lasts 21 days
-[Fase 2: Elaboración - Arquitectura y Diseño] lasts 21 days
-[Fase 3: Construcción Iter-1 - Matrícula y Usuarios] lasts 28 days
-[Fase 3: Construcción Iter-2 - Pagos y Reportes] lasts 28 days
-[Fase 4: Transición - Pruebas, Despliegue y Capacitación] lasts 21 days
+-- Fase 1: Incepción --
+[Elicitación y Entrevistas con Interesados] lasts 10 days
+[Elicitación y Entrevistas con Interesados] is colored in #C8310E
+[Modelado ERS y Definición de Reglas] lasts 14 days
+[Modelado ERS y Definición de Reglas] is colored in #C8310E
+[Modelado ERS y Definición de Reglas] starts 5 days after [Elicitación y Entrevistas con Interesados]'s start
+[Hito: Línea Base de Requisitos Aprobada] happens at [Modelado ERS y Definición de Reglas]'s end
 
-[Fase 1: Incepción - Elicitación y ERS con REM] is colored in #C8310E
-[Fase 2: Elaboración - Arquitectura y Diseño] is colored in #2C5F8A
-[Fase 3: Construcción Iter-1 - Matrícula y Usuarios] is colored in #4A7C59
-[Fase 3: Construcción Iter-2 - Pagos y Reportes] is colored in #4A7C59
-[Fase 4: Transición - Pruebas, Despliegue y Capacitación] is colored in #D4A017
+-- Fase 2: Elaboración --
+[Diseño de Arquitectura Web y Base de Datos] lasts 14 days
+[Diseño de Arquitectura Web y Base de Datos] is colored in #2C5F8A
+[Diseño de Arquitectura Web y Base de Datos] starts at [Modelado ERS y Definición de Reglas]'s end
+[Prototipado de Interfaz y UX] lasts 14 days
+[Prototipado de Interfaz y UX] is colored in #2C5F8A
+[Prototipado de Interfaz y UX] starts at [Modelado ERS y Definición de Reglas]'s end
+[Diseño de Control de Acceso por Roles y Auditoría] lasts 10 days
+[Diseño de Control de Acceso por Roles y Auditoría] is colored in #2C5F8A
+[Diseño de Control de Acceso por Roles y Auditoría] starts 5 days after [Diseño de Arquitectura Web y Base de Datos]'s start
+[Hito: Arquitectura Congelada] happens at [Diseño de Arquitectura Web y Base de Datos]'s end
 
-[Fase 2: Elaboración - Arquitectura y Diseño] starts at [Fase 1: Incepción - Elicitación y ERS con REM]'s end
-[Fase 3: Construcción Iter-1 - Matrícula y Usuarios] starts at [Fase 2: Elaboración - Arquitectura y Diseño]'s end
-[Fase 3: Construcción Iter-2 - Pagos y Reportes] starts at [Fase 3: Construcción Iter-1 - Matrícula y Usuarios]'s end
-[Fase 4: Transición - Pruebas, Despliegue y Capacitación] starts at [Fase 3: Construcción Iter-2 - Pagos y Reportes]'s end
+-- Fase 3: Construcción --
+[Desarrollo Módulo Autenticación y Seguridad] lasts 14 days
+[Desarrollo Módulo Autenticación y Seguridad] is colored in #4A7C59
+[Desarrollo Módulo Autenticación y Seguridad] starts at [Diseño de Arquitectura Web y Base de Datos]'s end
+[Desarrollo Módulo Gestión de Estudiantes y Matrículas] lasts 21 days
+[Desarrollo Módulo Gestión de Estudiantes y Matrículas] is colored in #4A7C59
+[Desarrollo Módulo Gestión de Estudiantes y Matrículas] starts 7 days after [Desarrollo Módulo Autenticación y Seguridad]'s start
+[Pruebas de Integración Iteración 1] lasts 7 days
+[Pruebas de Integración Iteración 1] is colored in #4A7C59
+[Pruebas de Integración Iteración 1] starts at [Desarrollo Módulo Gestión de Estudiantes y Matrículas]'s end
+
+[Desarrollo Módulo Caja y Gestión Financiera] lasts 21 days
+[Desarrollo Módulo Caja y Gestión Financiera] is colored in #34495E
+[Desarrollo Módulo Caja y Gestión Financiera] starts at [Pruebas de Integración Iteración 1]'s end
+[Desarrollo Módulo de Reportes e Indicadores] lasts 14 days
+[Desarrollo Módulo de Reportes e Indicadores] is colored in #34495E
+[Desarrollo Módulo de Reportes e Indicadores] starts 7 days after [Desarrollo Módulo Caja y Gestión Financiera]'s start
+[Pruebas de Integración Iteración 2] lasts 7 days
+[Pruebas de Integración Iteración 2] is colored in #34495E
+[Pruebas de Integración Iteración 2] starts at [Desarrollo Módulo Caja y Gestión Financiera]'s end
+[Hito: Versión Alfa Completa] happens at [Pruebas de Integración Iteración 2]'s end
+
+-- Fase 4: Transición --
+[Pruebas de Carga Rendimiento y Seguridad] lasts 10 days
+[Pruebas de Carga Rendimiento y Seguridad] is colored in #D4A017
+[Pruebas de Carga Rendimiento y Seguridad] starts at [Pruebas de Integración Iteración 2]'s end
+[Capacitación a Usuarios y Personal Administrativo] lasts 7 days
+[Capacitación a Usuarios y Personal Administrativo] is colored in #D4A017
+[Capacitación a Usuarios y Personal Administrativo] starts 3 days after [Pruebas de Carga Rendimiento y Seguridad]'s start
+[Migración de Datos y Despliegue en Producción] lasts 7 days
+[Migración de Datos y Despliegue en Producción] is colored in #D4A017
+[Migración de Datos y Despliegue en Producción] starts at [Pruebas de Carga Rendimiento y Seguridad]'s end
+[Hito: Puesta en Producción SIGAE] happens at [Migración de Datos y Despliegue en Producción]'s end
+
 @endgantt
