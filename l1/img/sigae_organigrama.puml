@@ -1,41 +1,46 @@
 @startuml
 skinparam backgroundColor #FFFFFF
 skinparam shadowing false
+skinparam roundcorner 8
 skinparam rectangle {
-  BackgroundColor #F1F3F4
-  BorderColor #333333
+  BackgroundColor #F8F9FA
+  BorderColor #2C3E50
+  FontColor #2C3E50
+  FontSize 10
 }
 skinparam package {
-  BackgroundColor #FFFFFF
-  BorderColor #333333
+  BackgroundColor #F1F4F8
+  BorderColor #4A6572
+  FontColor #1A252C
+  FontStyle bold
+  FontSize 11
 }
-title Organigrama de Roles - Proyecto SIGAE
 
-rectangle "Jefe de Proyecto" as JP #C8310E {
+title Organigrama de Roles del Proyecto SIGAE
+
+rectangle "<font color=white><b>Jefe de Proyecto</b>\n<i>Coordinación General y Gestión de Riesgos</i></font>" as JP #C8310E
+
+package "Área de Análisis y Diseño" {
+  rectangle "<b>Analista de Requisitos</b>\nModelado ERS y trazabilidad" as AR
+  rectangle "<b>Diseñador UI/UX</b>\nPrototipado e interfaces" as UX
 }
 
-rectangle "Analista de Requisitos\n(REM / ERS)" as AR
-rectangle "Arquitecto de Software" as AQ
-rectangle "Diseñador UI/UX" as UX
-rectangle "Equipo de Desarrollo\n(Backend + Frontend)" as DEV
-rectangle "QA / Tester" as QA
-rectangle "Administrador de BD\n+ DevOps (Respaldo/HTTPS)" as DBA
+package "Área de Arquitectura y Desarrollo" {
+  rectangle "<b>Arquitecto de Software</b>\nArquitectura web, RBAC y auditoría" as AQ
+  rectangle "<b>Equipo de Desarrollo</b>\nImplementación Backend y Frontend" as DEV
+}
+
+package "Área de Calidad y Operaciones" {
+  rectangle "<b>Especialista de Calidad (QA)</b>\nPruebas funcionales, carga y seguridad" as QA
+  rectangle "<b>Administrador de BD y DevOps</b>\nBase de datos, respaldos y HTTPS" as DBA
+}
 
 JP --> AR
 JP --> AQ
-JP --> UX
-JP --> DEV
 JP --> QA
-JP --> DBA
 
-note right of AR : Elabora ERS, gestiona\ntrazabilidad OBJ-FR-NFR\ncon REM
-note right of AQ : Define arquitectura web,\nRBAC, auditoría
-note right of DEV : Implementa FR-01..FR-23\n(estudiante, matrícula, pagos)
-note right of QA : Verifica NFR-01..NFR-11\n(carga, seguridad, usabilidad)
-note right of DBA : Asegura NFR-10 respaldo\ndiario y NFR-06 HTTPS
+AR -[hidden]down-> UX
+AQ -[hidden]down-> DEV
+QA -[hidden]down-> DBA
 
-legend right
-  Fuente: Roles definidos según
-  Pressman (2021) y Sommerville (2020)
-endlegend
 @enduml

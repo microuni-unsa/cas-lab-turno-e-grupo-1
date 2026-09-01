@@ -5,21 +5,22 @@
   #show heading: set text(weight: "bold")
   #set par(justify: true)
 
-  == 1. ¿Qué fuentes de elicitación son las de uso más frecuente?
-  Entrevista, observación, análisis documental, cuestionario/encuesta, taller/workshop, prototipado y revisión de sistemas existentes @sommerville2020 @pressman2021 @ieee2024. En el caso Nuevo Horizonte las más frecuentes fueron declaraciones de interesados (§4), formularios/fichas actuales (§6.1) y reglas §8. La entrevista y el análisis de documentos dominan en dominios con proceso manual previo; el taller es frecuente cuando hay conflicto entre áreas (caja vs. docencia).
+  == Fuentes de elicitación de uso más frecuente
+  Las técnicas de elicitación más frecuentes en ingeniería de requisitos son las entrevistas, la observación directa, el análisis documental, las encuestas y cuestionarios, los talleres de trabajo, el prototipado y la inspección de sistemas heredados @sommerville2020 @pressman2021 @ieee2024. Para el sistema SIGAE (colegio Nuevo Horizonte), las fuentes primarias fueron entrevistas a interesados clave, revisión de impresos manuales de matrícula y normas institucionales. Las entrevistas y la revisión documental son óptimas al migrar procesos manuales, mientras que los talleres participativos permiten resolver discrepancias entre áreas (p. ej., Caja y Dirección Docente).
 
-  == 2. ¿La entrevista se realiza en todos los casos a los usuarios finales?
-  No. SWEBOK y Sommerville distinguen interesados (stakeholders) de usuarios finales @ieee2024 @sommerville2020. Se entrevista a muestra representativa + decisores + personal de soporte. En SIGAE se entrevista a Directora, Secretaría, Caja, Dirección Académica y Administradora, no a los 1 200 apoderados. La técnica se selecciona por riesgo y costo: para apoderados es más eficiente cuestionario + validación de prototipo que entrevistar a todos.
+  == Aplicación de entrevistas a usuarios finales
+  No se entrevista a la totalidad de los usuarios finales por restricciones de costo y viabilidad logística. La literatura distingue entre interesados y usuarios finales, recomendando entrevistar solo a muestras representativas y roles clave @ieee2024 @sommerville2020. En SIGAE, las entrevistas se centraron en la Directora, Secretaría Académica, Caja, Dirección Académica y Administración, omitiendo entrevistas individuales a los 1 200 apoderados. Para grupos masivos se utilizan cuestionarios estructurados y validación con prototipos navegables.
 
-  == 3. ¿Cuál considera más efectiva: el cuestionario o la encuesta? (matiz)
-  En la literatura hispana ambos términos se usan indistintos; en inglés `questionnaire` es el instrumento y `survey` el método @pressman2021. Efectividad depende del objetivo: cuestionario estructurado es efectivo para cuantificar necesidades y priorizar (útil para apoderados, 1 200 casos); entrevista es más efectiva para descubrir reglas y excepciones (ej. "código provisional autorizado" §6.1) @durán2002rem. Para SIGAE la combinación entrevista (directivos) + cuestionario (apoderados/docentes) maximiza cobertura y verificabilidad @ieee29148.
+  == Cuestionario frente a encuesta
+  Aunque en español suelen usarse como sinónimos, técnicamente el cuestionario es el instrumento de recolección y la encuesta es la metodología global de investigación @pressman2021. El cuestionario permite cuantificar necesidades y prioridades en poblaciones amplias (como los 1 200 apoderados), mientras que la entrevista descubre excepciones operativas y reglas complejas @durán2002rem. En SIGAE, combinar entrevistas a responsables con cuestionarios a docentes y apoderados optimiza tanto la cobertura como la precisión de los requisitos @ieee29148.
 
-  == 4. Preguntas orientadoras del caso (síntesis)
-  - *Necesidad vs. regla:* "consultar pagos" = necesidad; "una matrícula activa/año" = regla (CTR-02).
-  - *Ambigüedad que exige consulta:* plazo de regularización del código provisional y quién autoriza exceso de vacantes (CTR-03).
-  - *Dependencias:* FR-09 depende de FR-05/07 e IRQ-01/06; FR-12 depende de matrícula activa.
-  - *Calidad medible:* NFR-01 (≤2s p95), NFR-03 (100 concurrentes), NFR-05 (hash), NFR-10 (RPO 24h).
-  - *Excepciones en CA:* duplicado documento (FR-01), sin vacante, año cerrado (CTR-04), 5 fallos bloqueo (FR-18), anulación con motivo (FR-10/13).
-  - *Prioridad v1:* estudiante/matrícula/vacantes, usuarios/seguridad, reportes básicos; pagos iter-2 según Gantt.
+  == Preguntas orientadoras del caso
+  Del análisis del escenario del colegio Nuevo Horizonte se desprenden los siguientes puntos fundamentales:
 
+  - *Diferenciación entre necesidad y regla de negocio:* La solicitud "quiero consultar pagos realizados" es una necesidad funcional, mientras que la prohibición de matricular sin vacantes es una regla de negocio formalizada como restricción (CTR-03).
+  - *Identificación de ambigüedades:* Se aclararon puntos indeterminados como el plazo máximo para regularizar el código provisional de estudiante y el rol con autoridad para otorgar vacantes extraordinarias.
+  - *Relaciones de dependencia entre requisitos:* La matrícula (FR-09) requiere configurar el año/vacantes (FR-05/07) y registrar al estudiante (IRQ-01/06). Asimismo, emitir comprobantes (FR-12) exige una matrícula activa.
+  - *Cuantificación de la calidad:* Definida con métricas observables: NFR-01 (consultas ≤ 2 s p95), NFR-03 (100 usuarios concurrentes), NFR-05 (hashing de contraseñas) y NFR-10 (respaldo diario con RPO 24 h).
+  - *Manejo de excepciones en criterios de aceptación:* Se especificaron respuestas ante eventos no nominales: rechazo por DNI duplicado (FR-01), denegación sin vacantes (CTR-03), bloqueo por año cerrado (CTR-04), bloqueo por 5 intentos fallidos (FR-18) y anulación justificada (FR-10/13).
+  - *Priorización de entregas v1:* En v1 se priorizan gestión de estudiantes, matrícula y vacantes (FR-01 a FR-11), administración y seguridad (FR-15 a FR-19), y reportes básicos (FR-21 a FR-23); la automatización de pagos (FR-12 a FR-14) pasa a la segunda fase.
 ]
