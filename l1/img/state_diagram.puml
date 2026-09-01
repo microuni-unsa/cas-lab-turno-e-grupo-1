@@ -1,0 +1,22 @@
+@startuml
+skinparam shadowing false
+skinparam backgroundColor #FFFFFF
+
+state "Ciclo de Vida de la Matrícula" as MatriculaState {
+  [*] --> Registrado : Secretaria selecciona sección
+  Registrado --> Activa : Confirmar vacante y emitir constancia
+  Activa --> Anulada : Solicitud autorizada por Dirección Académica [Motivo registrado]
+  Activa --> Concluida : Cierre de año escolar
+  Anulada --> [*] : Registro inmutable en auditoría
+  Concluida --> [*]
+}
+
+state "Ciclo de Vida del Usuario" as UsuarioState {
+  [*] --> Inactivo : Creado por Admin
+  Inactivo --> Activo : Asignación de rol e inicio de clave
+  Activo --> Bloqueado : 5 Intentos fallidos consecutivos
+  Bloqueado --> Activo : Restablecimiento por Admin
+  Activo --> Desactivado : Cese de funciones
+  Desactivado --> [*]
+}
+@enduml
