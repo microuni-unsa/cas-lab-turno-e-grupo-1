@@ -1,0 +1,12 @@
+@startgantt
+[Fase 1: Incepción y Requisitos] lasts 21 days
+[Fase 2: Elaboración y Arquitectura] lasts 28 days
+[Fase 3: Construcción - Iteración 1] lasts 28 days
+[Fase 3: Construcción - Iteración 2] lasts 28 days
+[Fase 4: Transición y Despliegue] lasts 21 days
+
+[Fase 2: Elaboración y Arquitectura] starts at [Fase 1: Incepción y Requisitos]'s end
+[Fase 3: Construcción - Iteración 1] starts at [Fase 2: Elaboración y Arquitectura]'s end
+[Fase 3: Construcción - Iteración 2] starts at [Fase 3: Construcción - Iteración 1]'s end
+[Fase 4: Transición y Despliegue] starts at [Fase 3: Construcción - Iteración 2]'s end
+@endgantt

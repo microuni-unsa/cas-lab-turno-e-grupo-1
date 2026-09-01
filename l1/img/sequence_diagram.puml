@@ -1,0 +1,46 @@
+@startuml
+skinparam shadowing false
+skinparam backgroundColor #FFFFFF
+
+autonumber
+actor "Secretaria Académica" as Sec
+participant "Interfaz Web SIGAE" as UI
+participant "Controlador Matrícula" as Ctrl
+participant "Servicio Validación" as Val
+participant "Servicio Académico" as Acad
+database "Base de Datos" as BD
+
+Sec -> UI : Iniciar Matrícula (DocIdentidad, Grado, Sección)
+activate UI
+UI -> Ctrl : procesarMatricula(idEstudiante, idSeccion)
+activate Ctrl
+Ctrl -> Val : validarRequisitos(idEstudiante, anioLectivo)
+activate Val
+Val -> BD : consultarEstudianteYMatriculas(idEstudiante, anioLectivo)
+activate BD
+BD --> Val : Datos estudiante + Matrículas previas
+deactivate BD
+Val --> Ctrl : Validado (Estudiante Activo, Sin matrícula duplicada)
+deactivate Val
+
+Ctrl -> Acad : verificarVacantes(idSeccion)
+activate Acad
+Acad -> BD : consultarVacantesDisponibles(idSeccion)
+activate BD
+BD --> Acad : Vacantes disponibles = N (N > 0)
+deactivate BD
+Acad --> Ctrl : Vacantes Disponibles OK
+deactivate Acad
+
+Ctrl -> BD : registrarMatricula(codigo, fecha, estado='ACTIVA')
+activate BD
+BD -> BD : decrementarVacantesDisponibles(idSeccion)
+BD -> BD : registrarBitacoraAuditoria('MATRICULA_CREADA')
+BD --> Ctrl : Matrícula Registrada con Éxito
+deactivate BD
+
+Ctrl --> UI : Matrícula Confirmada (CódigoMatrícula)
+deactivate Ctrl
+UI -> Sec : Mostrar mensaje de éxito y generar Constancia PDF
+deactivate UI
+@enduml

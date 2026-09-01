@@ -1,0 +1,41 @@
+@startuml
+skinparam backgroundColor #FFFFFF
+skinparam shadowing false
+skinparam rectangle {
+  BackgroundColor #F1F3F4
+  BorderColor #333333
+}
+skinparam package {
+  BackgroundColor #FFFFFF
+  BorderColor #333333
+}
+title Organigrama de Roles - Proyecto SIGAE
+
+rectangle "Jefe de Proyecto" as JP #C8310E {
+}
+
+rectangle "Analista de Requisitos\n(REM / ERS)" as AR
+rectangle "Arquitecto de Software" as AQ
+rectangle "Diseñador UI/UX" as UX
+rectangle "Equipo de Desarrollo\n(Backend + Frontend)" as DEV
+rectangle "QA / Tester" as QA
+rectangle "Administrador de BD\n+ DevOps (Respaldo/HTTPS)" as DBA
+
+JP --> AR
+JP --> AQ
+JP --> UX
+JP --> DEV
+JP --> QA
+JP --> DBA
+
+note right of AR : Elabora ERS, gestiona\ntrazabilidad OBJ-FR-NFR\ncon REM
+note right of AQ : Define arquitectura web,\nRBAC, auditoría
+note right of DEV : Implementa FR-01..FR-23\n(estudiante, matrícula, pagos)
+note right of QA : Verifica NFR-01..NFR-11\n(carga, seguridad, usabilidad)
+note right of DBA : Asegura NFR-10 respaldo\ndiario y NFR-06 HTTPS
+
+legend right
+  Fuente: Roles definidos según
+  Pressman (2021) y Sommerville (2020)
+endlegend
+@enduml

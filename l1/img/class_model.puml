@@ -1,0 +1,92 @@
+@startuml
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam backgroundColor #FFFFFF
+
+class Estudiante {
+  + String idEstudiante
+  + String tipoDocumento
+  + String numeroDocumento
+  + String nombres
+  + String apellidos
+  + Date fechaNacimiento
+  + String direccion
+  + String telefono
+  + String estado
+}
+
+class Apoderado {
+  + String idApoderado
+  + String tipoDocumento
+  + String numeroDocumento
+  + String nombres
+  + String apellidos
+  + String parentesco
+  + String telefono
+  + String correo
+}
+
+class AnioEscolar {
+  + Integer anio
+  + Date fechaInicio
+  + Date fechaFin
+  + String estado
+}
+
+class Seccion {
+  + String idSeccion
+  + String nivel
+  + String grado
+  + String letraSeccion
+  + Integer vacantesTotales
+  + Integer vacantesDisponibles
+}
+
+class Matricula {
+  + String codigoMatricula
+  + Date fechaMatricula
+  + String estado
+  + String motivoAnulacion
+  + Date fechaAnulacion
+}
+
+class Pago {
+  + String codigoPago
+  + String concepto
+  + Integer periodoMes
+  + Decimal importe
+  + Date fechaPago
+  + String medioPago
+  + String estado
+  + String motivoAnulacion
+}
+
+class Usuario {
+  + String idUsuario
+  + String username
+  + String hashPassword
+  + String rol
+  + String estado
+  + Integer intentosFallidos
+  + DateTime ultimoAcceso
+}
+
+class BitacoraAuditoria {
+  + Long idBitacora
+  + DateTime fechaHora
+  + String usuarioResponsable
+  + String operacion
+  + String detalle
+}
+
+Estudiante "*" -- "1..*" Apoderado : representado por >
+AnioEscolar "1" -- "*" Seccion : contiene >
+Seccion "1" -- "*" Matricula : asignada a >
+Estudiante "1" -- "*" Matricula : posee >
+Matricula "1" -- "*" Pago : genera deudas / >
+Estudiante "1" -- "*" Pago : realiza >
+Usuario "1" -- "0..1" Estudiante : vinculo opcional >
+Usuario "1" -- "0..1" Apoderado : acceso portal >
+Usuario "1" -- "*" BitacoraAuditoria : ejecuta >
+
+@enduml

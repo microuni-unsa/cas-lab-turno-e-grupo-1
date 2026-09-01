@@ -1,0 +1,46 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+skinparam shadowing false
+skinparam backgroundColor #FFFFFF
+
+actor "Secretaria Académica" as Sec
+actor "Personal de Caja" as Caja
+actor "Docente" as Doc
+actor "Padre / Apoderado" as Apo
+actor "Administradora del Sistema" as Admin
+actor "Dirección Académica" as DirAcad
+actor "Directora General" as DirGen
+
+rectangle "Sistema Integrado de Gestión Académica Escolar (SIGAE)" {
+  usecase "CU-01: Registrar / Actualizar Estudiante" as CU1
+  usecase "CU-02: Aperturar y Configurar Año Escolar" as CU2
+  usecase "CU-03: Realizar Matrícula" as CU3
+  usecase "CU-04: Anular Matrícula" as CU4
+  usecase "CU-05: Registrar Pago de Pensión" as CU5
+  usecase "CU-06: Anular Operación de Pago" as CU6
+  usecase "CU-07: Consultar Estado de Cuenta y Matrícula" as CU7
+  usecase "CU-08: Consultar Alumnos por Sección" as CU8
+  usecase "CU-09: Generar Reportes Consolidados" as CU9
+  usecase "CU-10: Gestionar Usuarios y Roles" as CU10
+  usecase "CU-11: Consultar Bitácora de Auditoría" as CU11
+}
+
+Sec --> CU1
+Sec --> CU3
+DirAcad --> CU2
+DirAcad --> CU4
+Caja --> CU5
+Caja --> CU6
+Apo --> CU7
+Doc --> CU8
+DirGen --> CU9
+Caja --> CU9
+Admin --> CU10
+Admin --> CU11
+
+CU3 ..> CU1 : <<include>>
+CU3 ..> CU2 : <<include>>
+CU4 ..> CU3 : <<extend>>
+CU6 ..> CU5 : <<extend>>
+@enduml

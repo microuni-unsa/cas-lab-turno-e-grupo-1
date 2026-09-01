@@ -1,0 +1,23 @@
+@startgantt
+title Cronograma SIGAE - Colegio Nuevo Horizonte (18 semanas - RUP)
+Project starts 2026-03-02
+printscale weekly
+skinparam backgroundColor #FFFFFF
+
+[Fase 1: Incepción - Elicitación y ERS con REM] lasts 21 days
+[Fase 2: Elaboración - Arquitectura y Diseño] lasts 21 days
+[Fase 3: Construcción Iter-1 - Matrícula y Usuarios] lasts 28 days
+[Fase 3: Construcción Iter-2 - Pagos y Reportes] lasts 28 days
+[Fase 4: Transición - Pruebas, Despliegue y Capacitación] lasts 21 days
+
+[Fase 1: Incepción - Elicitación y ERS con REM] is colored in #C8310E
+[Fase 2: Elaboración - Arquitectura y Diseño] is colored in #2C5F8A
+[Fase 3: Construcción Iter-1 - Matrícula y Usuarios] is colored in #4A7C59
+[Fase 3: Construcción Iter-2 - Pagos y Reportes] is colored in #4A7C59
+[Fase 4: Transición - Pruebas, Despliegue y Capacitación] is colored in #D4A017
+
+[Fase 2: Elaboración - Arquitectura y Diseño] starts at [Fase 1: Incepción - Elicitación y ERS con REM]'s end
+[Fase 3: Construcción Iter-1 - Matrícula y Usuarios] starts at [Fase 2: Elaboración - Arquitectura y Diseño]'s end
+[Fase 3: Construcción Iter-2 - Pagos y Reportes] starts at [Fase 3: Construcción Iter-1 - Matrícula y Usuarios]'s end
+[Fase 4: Transición - Pruebas, Despliegue y Capacitación] starts at [Fase 3: Construcción Iter-2 - Pagos y Reportes]'s end
+@endgantt
