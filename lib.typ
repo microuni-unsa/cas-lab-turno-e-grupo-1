@@ -160,7 +160,7 @@
   stroke: none,
   inset: none,
   header-fill: none,
-  body,
+  ..bodies,
 ) = context {
   let config = lab-section-state.get()
 
@@ -168,6 +168,11 @@
   let p_stroke = if stroke != none { stroke } else { config.stroke }
   let p_inset = if inset != none { inset } else { config.inset }
   let p_header_fill = if header-fill != none { header-fill } else { config.header-fill }
+
+  let cell-items = bodies.pos().map(b => [
+    #set text(size: 8.5pt)
+    #b
+  ])
 
   grid(
     align: p_align_mode,
@@ -181,10 +186,7 @@
         #align(center)[#title]
       ]],
     ),
-    [
-      #set text(size: 8.5pt)
-      #body
-    ],
+    ..cell-items,
   )
 }
 
@@ -339,8 +341,8 @@
   set list(indent: 1em, marker: "-")
   set enum(numbering: "1.")
   set image(width: 90%)
-  set figure(supplement: [Figura])
   show image: set align(center)
+  set text(lang: "es")
 
   set page(
     paper: "a4",
