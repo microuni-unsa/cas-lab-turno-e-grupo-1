@@ -1,0 +1,21 @@
+@startsalt
+{+
+  {* **PANEL DE CONTROL - GESTOR DE PEDIDOS (INSTANCIA UNICA)** | Fecha: 2026-09-14 }
+  .
+  {
+    [ >>> PROCESAR COBROS DIARIOS DE PEDIDOS PENDIENTES <<< ] | [ Actualizar Lista ]
+  }
+  .
+  {/ <b>Monitor de Pedidos y Estados de Transaccion:</b> }
+  {#
+    ID Pedido | Tipo      | Cliente       | Total      | Cuenta Cargo | Estado          | Accion
+    PED-101   | Simple    | C. Rodriguez  | S/. 1,230  | CTA-001-4421 | COBRADO         | [ Ordenar Distribucion ]
+    PED-102   | Compuesto | C. Rodriguez  | S/. 2,800  | Multi-Cta    | RECHAZADO       | [ Reintentar Cobro ]
+    PED-103   | Simple    | M. Fernandez  | S/.   420  | CTA-002-1140 | EN_DISTRIBUCION | [ Confirmar Entrega ]
+    PED-104   | Compuesto | L. Paredes    | S/. 1,950  | Multi-Cta    | CONFIRMADO      | [ Ver Historial ]
+  }
+  .
+  --
+  { Regla: Cobro diario centralizado. Rechazo integral en pedidos compuestos ante falta de saldo }
+}
+@endsalt

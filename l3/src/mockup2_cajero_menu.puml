@@ -1,0 +1,18 @@
+@startsalt
+{+
+  {* **RED DE CAJEROS AUTOMATICOS - BANRED CONSORCIO** | [ Salir ] }
+  .
+  {/ <b>Seleccione el tipo de operacion a realizar:</b> }
+  .
+  {
+    [ [1] Retirar Efectivo              ] | [ [2] Ingresar o Depositar Efectivo ]
+    .                                     | .
+    [ [3] Hacer Transferencias           ] | [ [4] Obtener Informacion de Cuenta ]
+    .                                     | .
+    [ [5] Consultar Saldo                ] | [ [6] Consultar Movimientos         ]
+  }
+  .
+  --
+  { Tarjeta: ************4589 | Banco: Banco Continental | [ Cancelar Operacion ] }
+}
+@endsalt

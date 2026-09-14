@@ -1,0 +1,53 @@
+@startuml
+skinparam monochrome false
+skinparam packageStyle rectangle
+skinparam shadowing false
+skinparam defaultFontName "Liberation Sans", "DejaVu Sans", sans-serif
+skinparam defaultFontSize 12
+
+skinparam usecase {
+  BackgroundColor #F8F9FA
+  BorderColor #1A5276
+  ArrowColor #1A5276
+}
+skinparam actor {
+  BackgroundColor #EAECEE
+  BorderColor #1A5276
+}
+
+left to right direction
+
+actor "Usuario" as user
+actor "Consorcio de Red" as consorcio
+actor "Banco" as banco
+
+rectangle "Cajero Automático" {
+  usecase "Validar Tarjeta y Clave" as UC_Validar
+  usecase "Retirar Efectivo" as UC_Retirar
+  usecase "Ingresar o Depositar Efectivo" as UC_Depositar
+  usecase "Hacer Transferencias" as UC_Transferir
+  usecase "Obtener Información de Cuenta" as UC_Info
+  usecase "Consultar Saldo" as UC_Saldo
+  usecase "Consultar Movimientos" as UC_Movimientos
+}
+
+user --> UC_Retirar
+user --> UC_Depositar
+user --> UC_Transferir
+user --> UC_Info
+
+UC_Retirar ..> UC_Validar : <<include>>
+UC_Depositar ..> UC_Validar : <<include>>
+UC_Transferir ..> UC_Validar : <<include>>
+UC_Info ..> UC_Validar : <<include>>
+
+UC_Saldo --|> UC_Info
+UC_Movimientos --|> UC_Info
+
+UC_Retirar --> consorcio
+UC_Depositar --> consorcio
+UC_Transferir --> consorcio
+UC_Info --> consorcio
+
+consorcio --> banco
+@enduml

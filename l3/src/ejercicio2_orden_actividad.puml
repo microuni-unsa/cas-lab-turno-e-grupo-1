@@ -1,0 +1,45 @@
+@startuml
+skinparam defaultFontName "Liberation Sans", "DejaVu Sans", sans-serif
+skinparam activity {
+  BackgroundColor #FDFEFE
+  BorderColor #1A5276
+  ArrowColor #1A5276
+  FontSize 12
+}
+skinparam note {
+  BackgroundColor #FCF3CF
+  BorderColor #B7950B
+  FontSize 11
+}
+
+start
+:Recibe orden;
+
+fork
+  :Autoriza pago;
+  if () then ([fallo])
+    :Cancela orden;
+    kill
+  else ([éxito])
+  endif
+fork again
+  -[#1A5276]->
+  note right: Disparador múltiple\n* [por cada artículo de línea del pedido]
+  :Comprueba artículo de línea;
+  if () then ([en existencia])
+    :Asigna a orden;
+    split
+      ' Rama principal a la sincronización
+    split again
+      -[#1A5276]-> [se necesita reordenar];
+      :Reordena artículo;
+      kill
+    end split
+  endif
+end fork
+
+-[#1A5276]->
+note left: Condición de sincronización:\n[existencia asignada a todos los\nartículos de línea y pago autorizado]
+:Despacha orden;
+stop
+@enduml

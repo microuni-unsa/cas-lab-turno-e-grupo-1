@@ -1,0 +1,23 @@
+@startsalt
+{+
+  {* **RETIRO DE EFECTIVO - BANRED CONSORCIO** | [ Volver al Menu ] }
+  .
+  {/ <b>Seleccione el importe a retirar de su cuenta:</b> }
+  .
+  {
+    Cuenta Origen: ^Ahorros Soles - 0011-0145-9872^
+    .
+    [ S/. 50.00  ] | [ S/. 100.00 ]
+    [ S/. 200.00 ] | [ S/. 500.00 ]
+    .
+    Otro monto: [ 350.00      ]
+    .
+    [X] Imprimir comprobante de la operacion
+    .
+    [ Cancelar ] | [ Confirmar Retiro ]
+  }
+  .
+  --
+  { Maximo diario: S/. 1500.00 | Dispensador activo }
+}
+@endsalt

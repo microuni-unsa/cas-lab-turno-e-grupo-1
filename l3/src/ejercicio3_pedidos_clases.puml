@@ -1,0 +1,122 @@
+@startuml
+skinparam monochrome false
+skinparam shadowing false
+skinparam defaultFontName "Liberation Sans", "DejaVu Sans", sans-serif
+skinparam defaultFontSize 11
+skinparam classAttributeIconSize 0
+
+skinparam class {
+  BackgroundColor #FFFFFF
+  BorderColor #1A5276
+  ArrowColor #1A5276
+  HeaderBackgroundColor #EAECEE
+}
+
+enum EstadoPedido {
+  PENDIENTE_COBRO
+  COBRADO
+  RECHAZADO
+  EN_DISTRIBUCION
+  CONFIRMADO
+}
+
+class Cliente {
+  - nombre: String
+  - direccion: String
+  - telefono: String
+  - email: String
+  + agregarCuenta(cuenta: Cuenta): void
+  + tieneCuentaConSaldo(): Boolean
+  + crearPedido(pedido: Pedido): void
+  + getCuentas(): List<Cuenta>
+}
+
+class Cuenta {
+  - numeroCuenta: String
+  - tarjetaCredito: String
+  - saldoDisponible: Decimal
+  + aumentarSaldo(monto: Decimal): void
+  + descontarSaldo(monto: Decimal): Boolean
+  + tieneSaldoSuficiente(monto: Decimal): Boolean
+  + getSaldoDisponible(): Decimal
+}
+
+class Producto {
+  - codigo: String
+  - nombre: String
+  - precioUnitario: Decimal
+  - cantidadStock: Integer
+  + tieneStock(cantidad: Integer): Boolean
+  + descontarStock(cantidad: Integer): void
+  + reponerStock(cantidad: Integer): void
+  + getCantidadStock(): Integer
+}
+
+class LineaPedido {
+  - cantidad: Integer
+  - precioUnitarioVenta: Decimal
+  + calcularSubtotal(): Decimal
+  + getCantidad(): Integer
+  + getProducto(): Producto
+}
+
+abstract class Pedido {
+  # codigoPedido: String
+  # fechaCreacion: DateTime
+  # estado: EstadoPedido
+  + {abstract} calcularTotal(): Decimal
+  + {abstract} obtenerTotalUnidades(): Integer
+  + {abstract} obtenerCuentasInvolucradas(): List<Cuenta>
+  + {abstract} validarCuentasMismoCliente(cliente: Cliente): Boolean
+  + setEstado(nuevoEstado: EstadoPedido): void
+  + getEstado(): EstadoPedido
+}
+
+class PedidoSimple {
+  - LIMITE_MAXIMO_UNIDADES: Integer = 20
+  + calcularTotal(): Decimal
+  + obtenerTotalUnidades(): Integer
+  + obtenerCuentasInvolucradas(): List<Cuenta>
+  + validarCuentasMismoCliente(cliente: Cliente): Boolean
+  + agregarLinea(linea: LineaPedido): Boolean
+  + setCuentaPago(cuenta: Cuenta): void
+  + getCuentaPago(): Cuenta
+}
+
+class PedidoCompuesto {
+  + agregarPedido(pedido: Pedido): void
+  + removerPedido(pedido: Pedido): void
+  + calcularTotal(): Decimal
+  + obtenerTotalUnidades(): Integer
+  + obtenerCuentasInvolucradas(): List<Cuenta>
+  + validarCuentasMismoCliente(cliente: Cliente): Boolean
+  + getSubpedidos(): List<Pedido>
+}
+
+class GestorPedidos <<Singleton>> {
+  - {static} instancia: GestorPedidos
+  - pedidosRegistrados: List<Pedido>
+  - GestorPedidos()
+  + {static} getInstancia(): GestorPedidos
+  + registrarPedido(pedido: Pedido): void
+  + procesarCobrosDiarios(): void
+  + ordenarDistribucion(pedido: Pedido): void
+  + confirmarEntrega(pedido: Pedido): void
+}
+
+Cliente "1" *-- "1..*" Cuenta : posee
+Cliente "1" --> "0..*" Pedido : solicita
+
+Pedido <|-- PedidoSimple
+Pedido <|-- PedidoCompuesto
+
+PedidoCompuesto "1" *-- "2..*" Pedido : contiene subpedidos
+
+PedidoSimple "0..*" --> "1" Cuenta : paga con
+PedidoSimple "1" *-- "1..*" LineaPedido : contiene
+LineaPedido "0..*" --> "1" Producto : referencia
+
+Pedido --> EstadoPedido : clasificado por
+
+GestorPedidos "1" --> "0..*" Pedido : procesa diario
+@enduml

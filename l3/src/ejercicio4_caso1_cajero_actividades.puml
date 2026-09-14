@@ -1,0 +1,27 @@
+@startuml
+skinparam defaultFontName "Liberation Sans", "DejaVu Sans", sans-serif
+skinparam activity {
+  BackgroundColor #FDFEFE
+  BorderColor #1A5276
+  ArrowColor #1A5276
+  FontSize 11
+}
+
+start
+:Usuario introduce tarjeta y clave;
+:Cajero solicita validacion al Consorcio;
+:Consorcio consulta al Banco;
+
+if (Credenciales validas?) then ([no])
+  :Cajero rechaza acceso;
+  stop
+else ([si])
+  :Cajero muestra operaciones disponibles;
+  :Usuario selecciona operacion;
+  :Cajero envia solicitud de operacion al Consorcio;
+  :Consorcio enruta operacion al Banco;
+  :Banco procesa operacion y retorna respuesta;
+  :Cajero entrega resultado y expulsa tarjeta;
+  stop
+endif
+@enduml

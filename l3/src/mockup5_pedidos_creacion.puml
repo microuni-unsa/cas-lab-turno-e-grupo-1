@@ -1,0 +1,29 @@
+@startsalt
+{+
+  {* **NUEVO PEDIDO DE PRODUCTOS** | Cliente: Carlos Rodriguez }
+  .
+  {/ <b>Tipo de Pedido:</b> }
+  {
+    (X) Pedido Simple  | () Pedido Compuesto
+    Cuenta de Pago: ^CTA-001-4421 (Saldo: S/. 1,450.00)^
+  }
+  .
+  {/ <b>Articulos del Pedido (Maximo 20 unidades en Pedidos Simples):</b> }
+  {#
+    Codigo | Producto             | Stock Disp. | Cantidad | Subtotal
+    PRD-01 | Teclado Mecanico     | 45 unid.    | [ 5 ]    | S/. 450.00
+    PRD-04 | Mouse Inalambrico    | 18 unid.    | [ 10]    | S/. 600.00
+    PRD-09 | Soporte Ergonomico   | 30 unid.    | [ 3 ]    | S/. 180.00
+  }
+  .
+  {
+    Total unidades seleccionadas: 18 / 20 unidades permitidas
+    Total a pagar del pedido: S/. 1,230.00
+    .
+    [ Agregar Producto del Catalogo ] | [ Validar Stock ] | [ Registrar Pedido ]
+  }
+  .
+  --
+  { Solo se permite la peticion de articulos con stock disponible }
+}
+@endsalt

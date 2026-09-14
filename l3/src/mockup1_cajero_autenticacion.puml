@@ -1,0 +1,20 @@
+@startsalt
+{+
+  {* **RED DE CAJEROS AUTOMATICOS - BANRED CONSORCIO** | [ Ayuda ] }
+  .
+  {/ <b>Bienvenido al Cajero Automatico</b> }
+  .
+  {
+    Por favor introduzca su tarjeta en la ranura inferior:
+    [ [O] Tarjeta Detectada: ************4589 ]
+    .
+    Ingrese su clave secreta PIN:
+    [ ****       ]
+    .
+    [ Cancelar ] | [ Limpiar ] | [ Confirmar ]
+  }
+  .
+  --
+  { Seguridad bancaria cifrada | Red de cajeros interbancaria }
+}
+@endsalt

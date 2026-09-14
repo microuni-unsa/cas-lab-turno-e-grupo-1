@@ -1,0 +1,48 @@
+@startuml
+skinparam monochrome false
+skinparam packageStyle rectangle
+skinparam shadowing false
+skinparam defaultFontName "Liberation Sans", "DejaVu Sans", sans-serif
+skinparam defaultFontSize 12
+
+skinparam usecase {
+  BackgroundColor #F8F9FA
+  BorderColor #1A5276
+  ArrowColor #1A5276
+}
+skinparam actor {
+  BackgroundColor #EAECEE
+  BorderColor #1A5276
+}
+
+left to right direction
+
+actor "Cliente" as cliente
+actor "Sistema de Pago" as pago
+actor "Almacen" as almacen
+
+rectangle "Procesamiento de Orden" {
+  usecase "Recibir orden" as UC_Recibir
+  usecase "Autorizar pago" as UC_Autorizar
+  usecase "Cancela orden" as UC_Cancelar
+  usecase "Comprueba articulo de linea" as UC_Comprueba
+  usecase "Asigna a orden" as UC_Asigna
+  usecase "Reordena articulo" as UC_Reordena
+  usecase "Despacha orden" as UC_Despacha
+}
+
+cliente --> UC_Recibir
+
+UC_Recibir ..> UC_Autorizar : <<include>>
+UC_Recibir ..> UC_Comprueba : <<include>>
+
+UC_Autorizar --> pago
+UC_Comprueba --> almacen
+
+UC_Autorizar ..> UC_Cancelar : <<extend>>
+UC_Comprueba ..> UC_Asigna : <<include>>
+UC_Asigna ..> UC_Reordena : <<extend>>
+
+UC_Despacha ..> UC_Autorizar : <<include>>
+UC_Despacha ..> UC_Asigna : <<include>>
+@enduml

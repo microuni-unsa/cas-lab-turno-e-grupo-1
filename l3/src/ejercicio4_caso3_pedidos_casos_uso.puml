@@ -1,0 +1,41 @@
+@startuml
+skinparam monochrome false
+skinparam packageStyle rectangle
+skinparam shadowing false
+skinparam defaultFontName "Liberation Sans", "DejaVu Sans", sans-serif
+skinparam defaultFontSize 12
+
+skinparam usecase {
+  BackgroundColor #F8F9FA
+  BorderColor #1A5276
+  ArrowColor #1A5276
+}
+skinparam actor {
+  BackgroundColor #EAECEE
+  BorderColor #1A5276
+}
+
+left to right direction
+
+actor "Cliente" as cliente
+actor "Gestor de Pedidos" as gestor
+
+rectangle "Gestion de Pedidos" {
+  usecase "Aumentar saldo de cuenta" as UC_Saldo
+  usecase "Realizar pedido simple" as UC_Simple
+  usecase "Realizar pedido compuesto" as UC_Compuesto
+  usecase "Cobrar pedidos" as UC_Cobrar
+  usecase "Ordenar distribucion" as UC_Distribuir
+  usecase "Confirmar pedido" as UC_Confirmar
+}
+
+cliente --> UC_Saldo
+cliente --> UC_Simple
+cliente --> UC_Compuesto
+
+UC_Compuesto ..> UC_Simple : <<include>>
+
+gestor --> UC_Cobrar
+gestor --> UC_Distribuir
+gestor --> UC_Confirmar
+@enduml

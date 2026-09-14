@@ -1,0 +1,26 @@
+@startuml
+skinparam defaultFontName "Liberation Sans", "DejaVu Sans", sans-serif
+skinparam activity {
+  BackgroundColor #FDFEFE
+  BorderColor #1A5276
+  ArrowColor #1A5276
+  FontSize 11
+}
+
+start
+:Cobro diario: comprobar pedidos pendientes;
+
+while (¿Hay pedido pendiente?) is (si)
+  :Verificar dinero en cuenta de pago;
+  if (¿Tiene suficiente dinero?) then ([si])
+    :Cobrar de la cuenta;
+    :Ordenar distribucion;
+    :Pedido entregado;
+    :Confirmar pedido;
+  else ([no])
+    :Rechazar pedido;
+  endif
+endwhile (no)
+
+stop
+@enduml

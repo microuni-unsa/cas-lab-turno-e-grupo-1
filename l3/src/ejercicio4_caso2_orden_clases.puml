@@ -1,0 +1,46 @@
+@startuml
+skinparam monochrome false
+skinparam shadowing false
+skinparam defaultFontName "Liberation Sans", "DejaVu Sans", sans-serif
+skinparam defaultFontSize 11
+skinparam classAttributeIconSize 0
+
+skinparam class {
+  BackgroundColor #FFFFFF
+  BorderColor #1A5276
+  ArrowColor #1A5276
+  HeaderBackgroundColor #EAECEE
+}
+
+class Orden {
+  - idOrden: String
+  - pagoAutorizado: Boolean
+  + recibir(): void
+  + cancelar(): void
+  + despachar(): void
+}
+
+class ArticuloLinea {
+  - cantidad: Integer
+  - enExistencia: Boolean
+  - asignado: Boolean
+  + comprobarExistencia(): Boolean
+  + asignar(): void
+  + reordenar(): void
+}
+
+class Pago {
+  - estado: String
+  + autorizar(): Boolean
+}
+
+class Inventario {
+  - stock: Integer
+  + verificarExistencia(cantidad: Integer): Boolean
+  + reordenarArticulo(): void
+}
+
+Orden "1" *-- "1..*" ArticuloLinea : contiene
+Orden "1" --> "1" Pago : requiere
+ArticuloLinea --> "1" Inventario : consulta
+@enduml

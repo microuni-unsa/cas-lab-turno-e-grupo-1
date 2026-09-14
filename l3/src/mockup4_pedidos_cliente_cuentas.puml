@@ -1,0 +1,28 @@
+@startsalt
+{+
+  {* **SISTEMA DE GESTION DE PEDIDOS** | Usuario: Administrador | [ Cerrar Sesion ] }
+  .
+  {/ <b>Ficha del Cliente y Cuentas de Pago</b> }
+  .
+  {
+    Nombre:    [ Carlos Rodriguez Gomez       ] | Telefono: [ 987-654-321 ]
+    Direccion: [ Av. Ejercito 1045, Arequipa  ] | Email:    [ crodriguez@mail.com ]
+    .
+    [ Guardar Datos de Cliente ]
+  }
+  .
+  {/ <b>Cuentas y Tarjetas de Credito Asociadas</b> }
+  {#
+    Numero Cuenta | Tarjeta Credito | Saldo Disp. | Estado | Accion
+    CTA-001-4421  | ****-****-1122  | S/. 1,450.00 | Activa | [ Aumentar Saldo ]
+    CTA-001-8890  | ****-****-5544  | S/.   320.00 | Activa | [ Aumentar Saldo ]
+  }
+  .
+  {
+    Monto a aumentar: [ 500.00 ] | Cuenta destino: ^CTA-001-8890^ | [ Aplicar Aumento de Saldo ]
+  }
+  .
+  --
+  { Requisito: Cliente con saldo disponible puede iniciar nuevos pedidos }
+}
+@endsalt
