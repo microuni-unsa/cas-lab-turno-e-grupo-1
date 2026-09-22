@@ -1,4 +1,4 @@
-#import "/lib.typ": lab-section
+#import "/components/@unsareport/epis-lab/lib.typ": lab-section
 
 == MODELADO DE SISTEMAS CON UML
 

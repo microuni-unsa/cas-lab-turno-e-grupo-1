@@ -5,13 +5,16 @@
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-26.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
+    unsareport.url = "github:UNSAReport/UNSAReport2/dev";
   };
 
   outputs =
     {
+      self,
       nixpkgs,
       nixpkgs-unstable,
       flake-utils,
+      unsareport,
       ...
     }:
     flake-utils.lib.eachDefaultSystem (
@@ -31,12 +34,14 @@
         devShells.default = pkgs.mkShell {
           packages = pkgs.lib.flatten [
             (with pkgs; [
+              bun
             ])
             (with unstable; [
               typst
               typstyle
               tinymist
             ])
+            unsareport.packages.${system}.unsarep
             fonts
           ];
 

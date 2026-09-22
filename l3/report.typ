@@ -1,4 +1,4 @@
-#import "/lib.typ": code-block, lab-section, table-border-width, unsa-report
+#import "/components/@unsareport/epis-lab/lib.typ": code-block, lab-section, table-border-width, unsa-report
 
 
 #show: unsa-report.with(
@@ -8,6 +8,10 @@
   instructor_name: "Jose Delgado Bastidas",
   members: (
     "Christian Raul Mestas Zegarra",
+  ),
+  custom_variables: (
+    course_abbr: "CAS E",
+    members_short: "MESTAS, CHRISTIAN",
   ),
 )
 

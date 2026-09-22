@@ -1,4 +1,4 @@
-#import "/lib.typ": lab-section
+#import "/components/@unsareport/epis-lab/lib.typ": lab-section
 
 == GESTIÓN DE REQUERIMIENTOS Y CONTROL DE CAMBIOS CON I-DOIT Y GITHUB PROJECTS
 

@@ -1,4 +1,4 @@
-#import "/lib.typ": lab-section
+#import "/components/@unsareport/epis-lab/lib.typ": lab-section
 
 == ESPECIFICACIÓN DE REQUISITOS DE SOFTWARE Y MODELADO CON LA HERRAMIENTA REM
 

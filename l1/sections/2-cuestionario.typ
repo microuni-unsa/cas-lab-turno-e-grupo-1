@@ -1,4 +1,4 @@
-#import "/lib.typ": lab-section
+#import "/components/@unsareport/epis-lab/lib.typ": lab-section
 
 #lab-section("CUESTIONARIO")[
   = CUESTIONARIO Y PREGUNTAS ORIENTADORAS

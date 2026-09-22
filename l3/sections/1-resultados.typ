@@ -1,4 +1,4 @@
-#import "/lib.typ": lab-section
+#import "/components/@unsareport/epis-lab/lib.typ": lab-section
 
 #lab-section("RESULTADOS Y PRUEBAS")[
   = RESULTADOS Y PRUEBAS
