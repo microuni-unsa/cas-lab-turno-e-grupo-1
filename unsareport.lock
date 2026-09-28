@@ -20,7 +20,7 @@
 
   [[pkg.files]]
     path = "lib.typ"
-    sha256 = "6dfd7f3e1cb1c5b33026c68aa539b0c68a0b5b700754b01cb133a7b9501ed8ea"
+    sha256 = "19d35bc85737c87f18021fb6484f43136cf8f1965ef3a77365ad8cef9c2f2193"
 
   [[pkg.files]]
     path = "scripts/copy_report.ts"
@@ -44,7 +44,7 @@
 
   [[pkg.files]]
     path = "lib.typ"
-    sha256 = "3f999449bfc59ba2a45085900024f7bf69a19f0c31d34b847f456e6020525f2c"
+    sha256 = "1e559f6441d6d7c2494303d1499d4b165e1418c4af0c1defb1289cfe16e9a217"
 
 [[pkg]]
   name = "@unsareport/gdocs-code-block"

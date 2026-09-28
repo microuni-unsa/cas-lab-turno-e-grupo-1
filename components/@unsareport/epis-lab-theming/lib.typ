@@ -5,6 +5,8 @@
 #let table-border-width = 0.5pt
 #let table-stroke = black + 1pt
 #let table-inset = 0.5em
+#let table-breakable = true
+#let table-cell-breakable = false
 #let code-bg-color = rgb("#F1F3F4")
 
 // Typography & Document Geometry

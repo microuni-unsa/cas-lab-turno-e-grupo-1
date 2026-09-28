@@ -1,0 +1,30 @@
+#import "/components/@unsareport/epis-lab/lib.typ": code-block, lab-section, table-border-width, unsa-report
+
+
+#show: unsa-report.with(
+  course_name: "Calidad de Software",
+  lab_title: "Dimensionamiento: Puntos de Función",
+  lab_number: "04",
+  instructor_name: "Jose Delgado Bastidas",
+  members: (
+    "Christian Raul Mestas Zegarra",
+  ),
+  custom_variables: (
+    course_abbr: "CAS E",
+    members_short: "MESTAS, CHRISTIAN",
+  ),
+)
+
+
+#set image(width: 65%)
+#set list(indent: 2pt)
+#set heading(numbering: "1.1.")
+#show raw.where(block: false): it => box(inset: (x: 0.5pt))[#it]
+
+#include "sections/1-resultados.typ"
+#v(0.5em)
+#include "sections/2-cuestionario.typ"
+#v(0.5em)
+#include "sections/3-conclusiones.typ"
+#v(0.5em)
+#include "sections/4-referencias.typ"
