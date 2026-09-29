@@ -12,10 +12,6 @@
 ) = {
   let cell-items = bodies.pos().map(b => [
     #set text(size: section-body-text-size)
-    #set table.cell(breakable: table-cell-breakable)
-    #show figure.where(kind: table): set block(breakable: table-breakable)
-    #show figure.where(kind: "table"): set block(breakable: table-breakable)
-    #show table: set block(breakable: table-breakable)
     #b
   ])
 
@@ -91,12 +87,10 @@
     stroke: table-stroke,
     inset: table-inset,
     columns: (1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
-    table.header(
-      table.cell(colspan: 6, fill: info-header-fill, align: center + horizon)[
-        #set text(size: info-header-text-size, weight: "bold", fill: info-header-text-color)
-        INFORMACIÓN BÁSICA
-      ],
-    ),
+    table.cell(colspan: 6, fill: info-header-fill, align: center + horizon)[
+      #set text(size: info-header-text-size, weight: "bold", fill: info-header-text-color)
+      INFORMACIÓN BÁSICA
+    ],
     [#text(weight: "bold")[ASIGNATURA:]],
     table.cell(colspan: 5)[#course-name],
     [#text(weight: "bold")[TÍTULO DE LA PRÁCTICA:]],
@@ -178,11 +172,6 @@
   set enum(numbering: enum-numbering)
   set image(width: image-default-width)
   show image: set align(center)
-
-  set table.cell(breakable: table-cell-breakable)
-  show figure.where(kind: table): set block(breakable: table-breakable)
-  show figure.where(kind: "table"): set block(breakable: table-breakable)
-  show table: set block(breakable: table-breakable)
 
   set page(
     paper: page-paper,
