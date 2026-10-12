@@ -1,0 +1,15 @@
+@startuml
+title Ciclo basico de trabajo con Subversion
+start
+:checkout de la copia de trabajo;
+:modificar archivos;
+:add de archivos nuevos;
+:update para traer cambios del equipo;
+if (Existen conflictos?) then (si)
+  :resolver con diff y merge;
+else (no)
+endif
+:commit de la revision;
+:ver log de historial;
+stop
+@enduml

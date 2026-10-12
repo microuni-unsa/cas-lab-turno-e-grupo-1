@@ -28,13 +28,15 @@
           inherit system;
           config.allowUnfree = true;
         };
-        fonts = with pkgs; [ lato ];
+        fonts = with pkgs; [ carlito ];
       in
       {
         devShells.default = pkgs.mkShell {
           packages = pkgs.lib.flatten [
             (with pkgs; [
               bun
+              subversion
+              plantuml
             ])
             (with unstable; [
               typst

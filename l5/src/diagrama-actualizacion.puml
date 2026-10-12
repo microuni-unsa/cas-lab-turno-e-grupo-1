@@ -1,0 +1,16 @@
+@startuml
+title Diagrama de actualización de versión luego de un cambio
+actor "Usuario A" as UA
+participant "Copia A" as CA
+participant "Repositorio central" as R
+participant "Copia B" as CB
+actor "Usuario B" as UB
+UA -> CA: edita main.py
+CA -> R: commit con mensaje
+R -> R: crea revision N+1
+R --> CA: confirma revision N+1
+UB -> CB: solicita update
+CB -> R: pide cambios
+R --> CB: envia revision N+1
+CB -> UB: muestra archivos actualizados
+@enduml

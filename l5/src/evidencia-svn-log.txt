@@ -1,0 +1,51 @@
+------------------------------------------------------------------------
+r4 | cricro | 2026-10-12 08:17:32 -0500 (Mon, 12 Oct 2026) | 1 line
+Changed paths:
+   A /tags/v1.0 (from /trunk:3)
+
+Etiqueta v1.0 de version estable
+------------------------------------------------------------------------
+r3 | cricro | 2026-10-12 08:17:32 -0500 (Mon, 12 Oct 2026) | 1 line
+Changed paths:
+   A /branches/rama1 (from /trunk:2)
+
+Creacion de rama1 desde trunk
+------------------------------------------------------------------------
+r2 | cricro | 2026-10-12 08:17:31 -0500 (Mon, 12 Oct 2026) | 1 line
+Changed paths:
+   M /trunk/main.py
+
+Actualizacion de main con segunda linea
+------------------------------------------------------------------------
+r1 | cricro | 2026-10-12 08:17:28 -0500 (Mon, 12 Oct 2026) | 1 line
+Changed paths:
+   A /branches
+   A /tags
+   A /trunk
+   A /trunk/main.py
+   A /trunk/notas.txt
+
+Estructura inicial trunk branches tags
+------------------------------------------------------------------------
+Path: repo
+URL: file:///tmp/l5-svn-demo/repo
+Relative URL: ^/
+Repository Root: file:///tmp/l5-svn-demo/repo
+Repository UUID: 45b4c3c6-c63f-11f1-8302-33bd7d4604a9
+Revision: 4
+Node Kind: directory
+Last Changed Author: cricro
+Last Changed Rev: 4
+Last Changed Date: 2026-10-12 08:17:32 -0500 (Mon, 12 Oct 2026)
+
+branches/
+branches/rama1/
+branches/rama1/main.py
+branches/rama1/notas.txt
+tags/
+tags/v1.0/
+tags/v1.0/main.py
+tags/v1.0/notas.txt
+trunk/
+trunk/main.py
+trunk/notas.txt
