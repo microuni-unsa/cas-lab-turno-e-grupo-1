@@ -199,5 +199,3 @@ RMAT no es una herramienta independiente de análisis, sino la capa de personali
 ) <tbl-pilar-rmat>
 
 Los diez escenarios del caso se ejecutan en PILAR con su biblioteca general y sus módulos de análisis RM y de continuidad BCM. RMAT interviene cuando el contexto exige adaptar esa base con perfiles de evaluación EVL, perfiles de amenazas TSV o protecciones adicionales KB, tarea prevista para consultores y grandes organizaciones @rmat2024.
-
-== Análisis de resultados
