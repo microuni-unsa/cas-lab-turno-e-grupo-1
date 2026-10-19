@@ -172,7 +172,32 @@ Los diez escenarios se registraron en el módulo de gestión operativa de riesgo
   caption: [Correspondencia entre los escenarios de la hoja y los registros en Pirani.],
 ) <tbl-pirani>
 
-Los nombres de niveles de Pirani difieren de la escala docente de la guía porque la matriz propia de la herramienta agrupa los mismos productos de 5 por 5 con sus etiquetas. Los valores de probabilidad e impacto registrados son idénticos en ambos soportes, por lo que la diferencia es solo de etiqueta y no de estimación.
+== Matriz de actividades con PILAR y RMAT
+RMAT no es una herramienta independiente de análisis, sino la capa de personalización de PILAR conocida como Risk Management Additional Tools. PILAR ejecuta el análisis y la gestión de riesgos con la metodología MAGERIT, mientras que RMAT prepara y mantiene las personalizaciones que se incorporan a la biblioteca de PILAR para adaptar el análisis a un contexto determinado @rmat2024 @pilarsite2024. La @tbl-pilar-rmat distribuye las actividades de la práctica entre ambas herramientas según esa relación.
+
+#figure(
+  table(
+    columns: (0.5fr, 1.1fr, 1.45fr, 1.45fr),
+    align: left + horizon,
+    stroke: 0.5pt + rgb("#808080"),
+    table.header(
+      table.cell(fill: rgb("#EAEAEA"))[N],
+      table.cell(fill: rgb("#EAEAEA"))[Actividad],
+      table.cell(fill: rgb("#EAEAEA"))[PILAR],
+      table.cell(fill: rgb("#EAEAEA"))[RMAT],
+    ),
+    [1], [Inventario de activos y dependencias], [Registra los activos A1 a A6 con dependencias y valora las dimensiones de confidencialidad, integridad, disponibilidad, autenticidad y trazabilidad], [Ajusta los perfiles de activos y dependencias con la vulnerabilidad típica del entorno académico mediante TSV],
+    [2], [Identificación de amenazas], [Aplica el catálogo estándar de amenazas sobre los activos del modelo], [Define un perfil de amenazas TSV con la exposición propia del entorno de operación],
+    [3], [Estimación de riesgo actual], [Calcula degradación por frecuencia con la biblioteca general y deduce el impacto y el riesgo del sistema], [Calibra los criterios de evaluación EVL del sector para afinar la calificación],
+    [4], [Selección de salvaguardas], [Propone salvaguardas, normas y procedimientos de seguridad desde su biblioteca], [Detalla protecciones adicionales KB con instrucciones al administrador del activo],
+    [5], [Cálculo de riesgo residual], [Reestima el riesgo residual a lo largo de las etapas de tratamiento según el grado de implantación de las salvaguardas], [Aporta los parámetros personalizados que alimentan la reestimación en PILAR],
+    [6], [Continuidad de operaciones], [Analiza el efecto de las interrupciones con el módulo BCM con elementos de respaldo y planes de recuperación], [Adapta los perfiles de respaldo y recuperación al contexto de la organización],
+    [7], [Calificación de seguridad normativa], [Califica el sistema respecto de ISO 27002, el Esquema Nacional de Seguridad y la verificación de RGPD], [Incorpora perfiles EVL con los criterios de acreditación del sector o punto de vista aplicable],
+    [8], [Reportes y mantenimiento del modelo], [Genera los reportes del análisis con la biblioteca general y conserva el proyecto], [Mantiene las personalizaciones EVL, TSV y KB que extienden la biblioteca de forma dinámica],
+  ),
+  caption: [Actividades de la práctica distribuidas entre PILAR y su extensión de personalización RMAT.],
+) <tbl-pilar-rmat>
+
+Los diez escenarios del caso se ejecutan en PILAR con su biblioteca general y sus módulos de análisis RM y de continuidad BCM. RMAT interviene cuando el contexto exige adaptar esa base con perfiles de evaluación EVL, perfiles de amenazas TSV o protecciones adicionales KB, tarea prevista para consultores y grandes organizaciones @rmat2024.
 
 == Análisis de resultados
-El resumen actual muestra cero riesgos bajos, cuatro moderados, cinco altos y un crítico con diez registros en estado Listo. Seis escenarios comprometen datos académicos y concentran la atención prioritaria. Los cuatro escenarios moderados corresponden a fallas técnicas con impacto acotado a interrupciones de 4 a 8 horas. El tratamiento reduce nueve escenarios a residual bajo y deja un residual moderado en R6 por la gravedad persistente de la divulgación masiva. La reducción del índice por escenario se calcula como el riesgo actual menos el riesgo residual dividido entre el riesgo actual @pilar2016. El archivo entregado con el plan lleno se encuentra en el directorio src del laboratorio.
