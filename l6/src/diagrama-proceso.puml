@@ -1,0 +1,22 @@
+@startuml
+title Proceso de gestion de riesgos ejecutado
+start
+:Definir contexto, alcance y horizonte de 12 meses;
+:Inventariar activos A1 a A6 con propietario y valor C I D A;
+:Definir escenarios R1 a R10 sobre el catalogo T1 a T10;
+:Estimar P e I con Tablas AR y calcular R actual;
+if (R actual supera el umbral 4?) then (si)
+  :Definir tratamiento, responsable y plazo;
+  :Estimar P residual e I residual y calcular R residual;
+  if (R residual supera el umbral 4?) then (si)
+    :Documentar nuevo tratamiento o excepcion;
+  else (no)
+    :Solicitar aceptacion del responsable;
+  endif
+else (no)
+  :Proponer aceptacion documentada;
+endif
+:Registrar los 10 riesgos en Pirani ORM;
+:Dar seguimiento con evidencias y verificaciones;
+stop
+@enduml

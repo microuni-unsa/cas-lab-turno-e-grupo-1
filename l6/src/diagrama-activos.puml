@@ -1,0 +1,21 @@
+@startuml
+title Dependencias entre activos del caso
+package "Sistema academico ficticio" {
+  [A1 Servicio academico]
+  [A2 Datos academicos]
+  [A3 Aplicacion web]
+  [A4 Servidor y red]
+  [A5 Respaldos]
+  [A6 Personal y cuentas]
+}
+[A1 Servicio academico] --> [A2 Datos academicos]
+[A1 Servicio academico] --> [A3 Aplicacion web]
+[A1 Servicio academico] --> [A4 Servidor y red]
+[A2 Datos academicos] --> [A4 Servidor y red]
+[A2 Datos academicos] --> [A6 Personal y cuentas]
+[A3 Aplicacion web] --> [A4 Servidor y red]
+[A3 Aplicacion web] --> [A6 Personal y cuentas]
+[A4 Servidor y red] --> [A6 Personal y cuentas]
+[A5 Respaldos] --> [A4 Servidor y red]
+[A5 Respaldos] --> [A6 Personal y cuentas]
+@enduml
