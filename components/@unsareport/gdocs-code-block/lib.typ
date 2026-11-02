@@ -41,10 +41,16 @@
   clip: false,
   text-size: 7pt,
 ) = {
-  let code = if snippet == none {
-    source
+  let src = if type(source) == content {
+    let kids = source.at("children", default: (source,))
+    kids.filter(x => x.func() == raw).at(0).text
   } else {
-    extract-named-snippet(source, snippet, prefix: prefix)
+    source
+  }
+  let code = if snippet == none {
+    src
+  } else {
+    extract-named-snippet(src, snippet, prefix: prefix)
   }
 
   block(

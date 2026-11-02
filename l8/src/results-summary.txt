@@ -1,0 +1,20 @@
+Plan: EjemploBlaze.jmx
+Hilos: 2, repeticiones por hilo: 2, aceleracion en segundos: 2
+
+WARN StatusConsoleListener The use of package scanning to locate plugins is deprecated and will be removed in a future release
+WARN StatusConsoleListener The use of package scanning to locate plugins is deprecated and will be removed in a future release
+WARN StatusConsoleListener The use of package scanning to locate plugins is deprecated and will be removed in a future release
+WARN StatusConsoleListener The use of package scanning to locate plugins is deprecated and will be removed in a future release
+Creating summariser <summary>
+Created the tree successfully using /tmp/EjemploBlaze-sample-YF8K.jmx
+Starting standalone test @ 2026 Nov 2 08:16:01 PET (1793625361126)
+Waiting for possible Shutdown/StopTestNow/HeapDump/ThreadDump message on port 4445
+summary +      1 in 00:00:01 =    0.9/s Avg:   976 Min:   976 Max:   976 Err:     0 (0.00%) Active: 2 Started: 2 Finished: 0
+summary +      7 in 00:00:02 =    3.8/s Avg:   411 Min:   329 Max:   758 Err:     0 (0.00%) Active: 0 Started: 2 Finished: 2
+summary =      8 in 00:00:03 =    2.8/s Avg:   482 Min:   329 Max:   976 Err:     0 (0.00%)
+Tidying up ...    @ 2026 Nov 2 08:16:04 PET (1793625364117)
+... end of run
+
+Resumen por peticion a partir de resultados-verificacion/resultados.jtl:
+02 Busqueda de vuelos de Paris a Buenos Aires: muestras=4 errores=0 promedio=351 ms minimo=329 ms maximo=367 ms
+01 Pagina inicial de BlazeDemo: muestras=4 errores=0 promedio=613 ms minimo=343 ms maximo=976 ms

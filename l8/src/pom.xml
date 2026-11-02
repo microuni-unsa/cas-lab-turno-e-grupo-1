@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>pe.edu.unsa.epis</groupId>
+  <artifactId>cas-lab-l8-blazedemo</artifactId>
+  <version>1.0.0</version>
+  <packaging>jar</packaging>
+
+  <name>Pruebas de rendimiento BlazeDemo del laboratorio 8</name>
+  <description>Plan de pruebas de rendimiento con Apache JMeter sobre el sitio BlazeDemo segun el Anexo 1 de la guia del laboratorio 8. El plan de pruebas se guarda junto a este archivo y la ejecucion de verificacion se reproduce con l8/src/run.sh.</description>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.lazerycode.jmeter</groupId>
+        <artifactId>jmeter-maven-plugin</artifactId>
+        <version>2.7.0</version>
+        <executions>
+          <execution>
+            <id>jmeter-tests</id>
+            <goals>
+              <goal>jmeter</goal>
+            </goals>
+            <phase>verify</phase>
+          </execution>
+        </executions>
+        <configuration>
+          <generateReports>false</generateReports>
+          <resultsFileFormat>xml</resultsFileFormat>
+          <testResultsTimestamp>false</testResultsTimestamp>
+          <testFilesDirectory>${project.basedir}</testFilesDirectory>
+          <testFilesIncluded>
+            <testFile>EjemploBlaze.jmx</testFile>
+          </testFilesIncluded>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>de.codecentric</groupId>
+        <artifactId>jmeter-graph-maven-plugin</artifactId>
+        <version>0.1.0</version>
+        <executions>
+          <execution>
+            <id>create-graphs-collection</id>
+            <goals>
+              <goal>create-graph</goal>
+            </goals>
+            <phase>verify</phase>
+            <configuration>
+              <inputFile>${project.build.directory}/jmeter/results/EjemploBlaze.jtl</inputFile>
+              <graphs>
+                <graph>
+                  <pluginType>ThroughputVsThreads</pluginType>
+                  <width>1920</width>
+                  <height>1080</height>
+                  <outputFile>${project.build.directory}/jmeter/results/ThroughputVsThreads.png</outputFile>
+                </graph>
+                <graph>
+                  <pluginType>ResponseCodesPerSecond</pluginType>
+                  <width>1920</width>
+                  <height>1080</height>
+                  <outputFile>${project.build.directory}/jmeter/results/ResponseCodesPerSecond.png</outputFile>
+                </graph>
+              </graphs>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
