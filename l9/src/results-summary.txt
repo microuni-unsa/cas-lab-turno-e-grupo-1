@@ -1,0 +1,136 @@
+===== ej1_funcionamiento.py =====
+test_abrir_python_org (__main__.TestFuncionamiento.test_abrir_python_org) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 2.106s
+
+OK
+Titulo: Welcome to Python.org
+Direccion: https://www.python.org/
+Captura guardada en /home/cricro/tiny-projects/documents/2026-B/cas-lab-turno-e-grupo-1/l9/img/ej1-python-org.png
+Resultado: OK
+
+===== ej3_buscar_unittest.py =====
+test_buscar (__main__.TestBuscar.test_buscar) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 8.769s
+
+OK
+Titulo: Google
+Sugerencias visibles: 10
+Captura guardada en /home/cricro/tiny-projects/documents/2026-B/cas-lab-turno-e-grupo-1/l9/img/ej3-sugerencias.png
+Resultado: OK
+
+===== ej4_xpath.py =====
+test_buscar_por_xpath_relativo (__main__.TestXpath.test_buscar_por_xpath_relativo) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 8.692s
+
+OK
+Nombre: textarea, XPath: textarea
+Sugerencias visibles: 10
+Captura guardada en /home/cricro/tiny-projects/documents/2026-B/cas-lab-turno-e-grupo-1/l9/img/ej4-sugerencias.png
+Resultado: OK
+
+===== ej5_toggle.py =====
+test_conmutar_interruptor (__main__.TestToggle.test_conmutar_interruptor) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 4.795s
+
+OK
+Interruptores encontrados: 4
+Estado tras primera pulsacion: True
+Captura guardada en /home/cricro/tiny-projects/documents/2026-B/cas-lab-turno-e-grupo-1/l9/img/ej5-toggle.png
+Resultado: OK
+
+===== ej6_select.py =====
+test_usando_select (__main__.TestSelect.test_usando_select) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 6.009s
+
+OK
+Opciones encontradas: 13
+Valor: 0, texto: Select car:
+Valor: 1, texto: Audi
+Valor: 2, texto: BMW
+Valor: 3, texto: Citroen
+Valor: 4, texto: Ford
+Valor: 5, texto: Honda
+Valor: 6, texto: Jaguar
+Valor: 7, texto: Land Rover
+Valor: 8, texto: Mercedes
+Valor: 9, texto: Mini
+Valor: 10, texto: Nissan
+Valor: 11, texto: Toyota
+Valor: 12, texto: Volvo
+Opcion elegida: Nissan
+Captura guardada en /home/cricro/tiny-projects/documents/2026-B/cas-lab-turno-e-grupo-1/l9/img/ej6-select.png
+Resultado: OK
+
+===== ej7_ventanas.py =====
+test_cambiar_de_pestana (__main__.TestVentanas.test_cambiar_de_pestana) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 8.196s
+
+OK
+Pestana 2: Example Domain en https://example.com/
+Captura guardada en /home/cricro/tiny-projects/documents/2026-B/cas-lab-turno-e-grupo-1/l9/img/ej7-segunda-pestana.png
+Pestana 1: Google en https://www.google.com/
+Resultado: OK
+
+===== ej8_navegacion.py =====
+test_atras_y_adelante (__main__.TestNavegacion.test_atras_y_adelante) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 14.453s
+
+OK
+Gmail redirige a https://accounts.google.com/v3/signin/identifier?continue=https://mail.google.com/mail/u/0/&emr=1&followup=https://mail.google.com/mail/u/0/&osid=1&passive=1209600&service=mail&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S504461087:1794230035700246
+YouTube en https://www.youtube.com/
+Captura guardada en /home/cricro/tiny-projects/documents/2026-B/cas-lab-turno-e-grupo-1/l9/img/ej8-youtube.png
+Tras retroceder dos veces: https://www.google.com/
+Tras avanzar una vez: https://accounts.google.com/v3/signin/identifier?continue=https://mail.google.com/mail/u/0/&emr=1&followup=https://mail.google.com/mail/u/0/&osid=1&passive=1209600&service=mail&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S504461087:1794230035700246
+Resultado: OK
+
+===== ej9_explicit_wait.py =====
+test_usando_explicit_wait (__main__.TestExplicitWait.test_usando_explicit_wait) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 7.621s
+
+OK
+Elemento visible: True
+Titulo: Google
+Resultado: OK
+
+===== ej10_implicit_wait.py =====
+test_usando_implicit_wait (__main__.TestImplicitWait.test_usando_implicit_wait) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 7.486s
+
+OK
+Elemento visible: True
+Titulo: Google
+Resultado: OK
+
+===== ej27_otro_navegador.py =====
+test_google_en_firefox (__main__.TestOtroNavegador.test_google_en_firefox) ... /home/cricro/.local/share/uv/python/cpython-3.14.3-linux-x86_64-gnu/lib/python3.14/tempfile.py:484: ResourceWarning: Implicitly cleaning up <HTTPError 405: 'Method Not Allowed'>
+  _warnings.warn(self.warn_message, ResourceWarning)
+ok
+
+----------------------------------------------------------------------
+Ran 1 test in 10.724s
+
+OK
+Navegador: firefox
+Version: 159.0.1
+Captura guardada en /home/cricro/tiny-projects/documents/2026-B/cas-lab-turno-e-grupo-1/l9/img/ej27-firefox.png
+Resultado: OK
+
+Ejercicios con fallo: 0

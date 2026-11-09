@@ -34,11 +34,17 @@
         devShells.default = pkgs.mkShell {
           packages = pkgs.lib.flatten [
             (with pkgs; [
-              bun
               subversion
               plantuml
+              python3
+              uv
             ])
             (with unstable; [
+              bun
+              chromium
+              chromedriver
+              firefox
+              geckodriver
               typst
               typstyle
               tinymist
